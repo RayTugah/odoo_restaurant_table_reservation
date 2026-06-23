@@ -1,0 +1,701 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_report_docume_4a1d3753-00a7-4f9d-b231-b7a28184af8a" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <t t-name="studio_report_document">
+        <t t-foreach="docs" t-as="o">
+          <div id="wrapwrap" class="ticket-page">
+            <style>
+                @page {
+                    size: 80mm 297mm;
+                    margin: 0 !important;
+                }
+
+                html, body {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    border: 0 !important;
+                    outline: 0 !important;
+                    box-shadow: none !important;
+                    background: #fff !important;
+                }
+
+                * {
+                    box-sizing: border-box;
+                    border: 0 !important;
+                    outline: 0 !important;
+                    box-shadow: none !important;
+                }
+
+                .page,
+                .article,
+                .o_report_layout,
+                .o_report_layout_standard,
+                .o_company_1_layout,
+                .header,
+                .footer,
+                .oe_structure {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    border: 0 !important;
+                    outline: 0 !important;
+                    box-shadow: none !important;
+                    background: transparent !important;
+                }
+
+                .ticket-page {
+                    width: 90mm;
+                    margin: 0 !important;
+                    padding: 1mm !important;
+                    border: none !important;
+                    outline: none !important;
+                    box-shadow: none !important;
+                    font-family: "Courier New", monospace;
+                    font-size: 11px;
+                    color: #000;
+                    background: #fff;
+                }
+
+                .ticket-center {
+                    text-align: center;
+                }
+
+                .ticket-title {
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin: 0 0 4px 0;
+                }
+
+                .ticket-sep {
+                    border-top: 1px dashed #000 !important;
+                    margin: 6px 0;
+                }
+
+                .ticket-head {
+                    font-size: 12px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .ticket-line {
+                    margin: 0 0 4px 0;
+                    padding: 0;
+                }
+
+                .ticket-line-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    border: none !important;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .ticket-line-table tr,
+                .ticket-line-table td,
+                .ticket-line-table tbody {
+                    border: none !important;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .ticket-line-left {
+                    width: 70%;
+                    vertical-align: top;
+                    text-align: left;
+                    word-break: break-word;
+                    padding: 0;
+                }
+
+                .ticket-line-right {
+                    width: 30%;
+                    vertical-align: top;
+                    text-align: right;
+                    white-space: nowrap;
+                    padding: 0;
+                }
+
+                .ticket-line-name {
+                    line-height: 1.15;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .ticket-sub {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 10px;
+                    line-height: 1.1;
+                }
+
+                .ticket-totals {
+                    margin-top: 10px;
+                    width: 100%;
+                    padding: 0;
+                }
+
+                .ticket-total-row {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                .ticket-grand-total {
+                    font-size: 16px;
+                    font-weight: bold;
+                    border-top: 1px solid #000 !important;
+                    margin-top: 4px;
+                    padding-top: 4px;
+                }
+
+                .ticket-footer {
+                    margin-top: 12px;
+                    text-align: center;
+                    font-size: 11px;
+                    padding: 0;
+                }
+            </style>
+            <div class="ticket-center">
+              <div class="ticket-title">CAMPING LA FUENTE</div>
+                Camino Bocamina, 30626<br />
+                        Los Baños de Fortuna, Murcia.<br />
+                        968 68 62 43<br />
+                        Hotel Fuente de los Baños Fortuna S.A.<br />
+                        A-30075063
+            </div>
+            <div class="ticket-sep" />
+            <div class="ticket-head">
+                Ticket: <span t-esc="o.display_name or o.id" />
+              <br />
+                        Fecha:
+                <t t-if="o.x_studio_fecha_grupo">
+                <span t-esc="o.x_studio_fecha_grupo.strftime('%d/%m/%Y')" />
+              </t>
+              <t t-else="">
+                <span t-esc="o.x_studio_fecha_y_hora and o.x_studio_fecha_y_hora.strftime('%d/%m/%Y')" />
+                <br />
+                <span t-esc="o.x_studio_fecha_y_hora and o.x_studio_fecha_y_hora.strftime('%H:%M')" />
+              </t>
+            </div>
+            <div class="ticket-sep" />
+            <t t-foreach="o.x_studio_productos" t-as="linea">
+              <t t-if="(linea.x_studio_cantidad_1 or 0) != 0">
+                <div class="ticket-line">
+                  <table class="ticket-line-table">
+                    <tr>
+                      <td class="ticket-line-left">
+                        <div class="ticket-line-name">
+                          <span t-esc="linea.x_studio_cantidad_1" />
+                          <span> </span>
+                          <span t-esc="linea.x_studio_nombre_producto and linea.x_studio_nombre_producto.display_name or ''" />
+                        </div>
+                        <div class="ticket-sub">
+                                        (<span t-esc="linea.x_studio_related_field_u3_1jk667e5u" />% IVA incl.)
+                                    </div>
+                      </td>
+                      <td class="ticket-line-right">
+                        <span t-esc="'%.2f €' % (linea.x_studio_subtotal or 0.0)" />
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </t>
+            </t>
+            <div class="ticket-totals">
+              <div class="ticket-total-row">
+                    Subtotal:
+                    <span t-esc="'%.2f €' % (o.x_studio_neto or 0.0)" />
+              </div>
+              <div class="ticket-total-row">
+                    IVA:
+                    <span t-esc="'%.2f €' % (o.x_studio_iva or 0.0)" />
+              </div>
+              <div class="ticket-total-row ticket-grand-total">
+                    Total:
+                    <span t-esc="'%.2f €' % (o.x_studio_total or 0.0)" />
+              </div>
+              <div class="ticket-sep" />
+              <t t-if="o.x_studio_numero_personas">
+                <div class="ticket-total-row ticket-grand-total" style="border-top: none !important; margin-top: 0; padding-top: 0;">
+                        Personas:
+                        <span t-esc="o.x_studio_numero_personas" />
+                </div>
+              </t>
+              <t t-if="o.x_studio_total_grupo">
+                <div class="ticket-total-row ticket-grand-total" style="border-top: none !important; margin-top: 0; padding-top: 0;">
+                        Total grupo:
+                        <span t-esc="'%.2f €' % (o.x_studio_total_grupo or 0.0)" />
+                </div>
+              </t>
+            </div>
+            <t t-if="o.x_studio_observaciones_externas">
+              <div class="ticket-sep" />
+              <div class="ticket-center" style="font-size: 11px;">
+                <strong>Observaciones:</strong>
+                <br />
+                <span t-esc="o.x_studio_observaciones_externas" />
+              </div>
+            </t>
+            <div class="ticket-footer">
+                Complejo Hostelero La Fuente<br />
+                        Los Baños de Fortuna (Murcia)<br />
+                        Gracias por su visita
+            </div>
+          </div>
+        </t>
+      </t>
+    </field>
+    <field name="key">odoo_restaurant_table_reservation.studio_report_docume_4a1d3753-00a7-4f9d-b231-b7a28184af8a_document</field>
+    <field name="name">odoo_restaurant_table_reservation.studio_report_docume_4a1d3753-00a7-4f9d-b231-b7a28184af8a_document</field>
+    <field name="type">qweb</field>
+  </record>
+  <record id="default_list_view_fo_7a2ef824-9259-45c7-828c-cafb8bb5e424" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <list default_order="x_studio_sequence asc,id desc">
+        <field name="x_studio_sequence" widget="handle" />
+        <field name="x_name" />
+        <field name="x_studio_partner_id" />
+        <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}" />
+      </list>
+    </field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">Default list view for x_camping_reservamesas</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_22ac9ae5-e7ba-4cef-ae19-15820366087e" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <form>
+        <header />
+        <sheet string="ReservaMesas">
+          <widget name="web_ribbon" text="Archivado" bg_color="text-bg-danger" invisible="x_active" />
+          <field name="x_active" invisible="1" />
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..." />
+            </h1>
+          </div>
+          <group name="studio_group_a4460c">
+            <group name="studio_group_a4460c_left">
+              <field name="x_studio_partner_id" />
+              <field name="x_studio_partner_phone" widget="phone" options="{'enable_sms': True}" />
+              <field name="x_studio_partner_email" widget="email" />
+              <field name="x_studio_date_start" string="Dates" widget="daterange" options="{'end_date_field': 'x_studio_date_stop'}" />
+              <field name="x_studio_date_stop" invisible="1" />
+            </group>
+            <group name="studio_group_a4460c_right">
+              <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}" />
+            </group>
+          </group>
+          <group>
+            <field name="x_studio_notes" placeholder="Escribe tus notas aquí..." nolabel="1" colspan="2" />
+          </group>
+        </sheet>
+        <chatter />
+      </form>
+    </field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">Default form view for x_camping_reservamesas</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__cc5d1835-4261-473f-bf72-f175044ff6db" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name" />
+        <field name="x_studio_partner_id" operator="child_of" />
+        <field name="x_studio_tag_ids" />
+        <filter name="filter_activities_my" domain="[['activity_user_id', '=', uid]]" />
+        <separator />
+        <filter date="x_studio_date_start" name="studio_filter_date_start" string="Fecha de inicio" />
+        <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="Fecha de finalización" />
+        <separator />
+        <filter string="Archivado" name="archived_x_camping_reservamesas" domain="[['x_active', '=', False]]" />
+        <separator />
+        <filter name="groupby_x_partner" string="Contacto" context="{'group_by': 'x_studio_partner_id'}" domain="[]" />
+      </search>
+    </field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">Default search view for x_camping_reservamesas</field>
+    <field name="type">search</field>
+  </record>
+  <record id="default_gantt_view_f_c4de7d00-5120-406d-be1b-c5021806ff91" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <gantt date_start="x_studio_date_start" date_stop="x_studio_date_stop" />
+    </field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">Default gantt view for x_camping_reservamesas</field>
+    <field name="type">gantt</field>
+  </record>
+  <record id="default_map_view_for_140a9cf5-9dc4-44ff-a658-1138044b388b" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <map res_partner="x_studio_partner_id">
+        <field name="x_studio_partner_id" string="Contacto" />
+      </map>
+    </field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">Default map view for x_camping_reservamesas</field>
+    <field name="type">map</field>
+  </record>
+  <record id="default_list_view_fo_84244c52-ac52-47f3-ae1c-e889588a0556" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <list editable="bottom" default_order="id desc">
+        <field name="x_name" />
+        <field name="x_color" widget="color_picker" />
+      </list>
+    </field>
+    <field name="model">x_camping_reservamesas_tag</field>
+    <field name="name">Default list view for x_camping_reservamesas_tag</field>
+    <field name="type">list</field>
+  </record>
+  <record id="default_form_view_fo_2cf2374f-ad60-4e3d-8502-2ed3c2852bf2" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <form>
+        <header />
+        <sheet string="ReservaMesas Tags">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1" placeholder="Name..." />
+            </h1>
+          </div>
+          <group name="studio_group_5b5a20">
+            <group name="studio_group_5b5a20_left" />
+            <group name="studio_group_5b5a20_right" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="model">x_camping_reservamesas_tag</field>
+    <field name="name">Default form view for x_camping_reservamesas_tag</field>
+    <field name="type">form</field>
+  </record>
+  <record id="default_search_view__f0752ccc-0a67-4c8b-aaf6-102593f474de" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <search>
+        <field name="x_name" />
+      </search>
+    </field>
+    <field name="model">x_camping_reservamesas_tag</field>
+    <field name="name">Default search view for x_camping_reservamesas_tag</field>
+    <field name="type">search</field>
+  </record>
+  <record id="odoo_studio_default__8727f8cf-bb94-4304-8c00-7710f2faad40" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/form//field[@name='x_studio_date_start']" position="replace">
+          <field name="x_studio_fecha_1" required="True" />
+          <field name="x_studio_hora_1" required="True" />
+          <field name="x_studio_numero_adultos_1" required="True" />
+          <field name="x_studio_numero_ninos" />
+          <field name="x_studio_numero_personas" />
+          <field name="x_studio_fecha_formateada" invisible="True" />
+        </xpath>
+        <xpath expr="/form//field[@name='x_studio_tag_ids']" position="after">
+          <field name="x_studio_pedido_de_venta_vinculado" />
+          <field name="x_studio_ticket_tpv_vinculado" options="{'create_name_field': 'x_name'}" />
+          <field name="x_studio_reserva_piscina_vinculada" options="{'create_name_field': 'code'}" force_save="1" readonly="True" />
+          <field name="x_studio_estado" widget="radio" invisible="True" />
+        </xpath>
+        <xpath expr="/form//field[@name='x_studio_tag_ids']" position="attributes">
+          <attribute name="string">Etiquetas</attribute>
+        </xpath>
+        <xpath expr="/form//field[@name='x_studio_notes']" position="after">
+          <field name="x_studio_observaciones_externas_1" placeholder="Poner todo el texto seguido sin hacer saltos de linea" />
+        </xpath>
+        <xpath expr="/form/sheet/group[2]" position="attributes">
+          <attribute name="string">OBSERVACIONES INTERNAS</attribute>
+        </xpath>
+        <xpath expr="/form//field[@name='x_studio_notes']" position="attributes">
+          <attribute name="placeholder">Escribe tus observaciones internas aquí...</attribute>
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_form_view_fo_22ac9ae5-e7ba-4cef-ae19-15820366087e" />
+    <field name="mode">extension</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">Odoo Studio: Default form view for x_camping_reservamesas customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="odoo_studio_default__912ade6f-531a-43c7-9b42-7e841229309e" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/list" position="attributes">
+          <attribute name="decoration-bf">1</attribute>
+        </xpath>
+        <xpath expr="/list//field[@name='x_studio_sequence']" position="after">
+          <field name="x_studio_numero_personas" optional="show" sum="Suma de Número personas" width="140" />
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_list_view_fo_7a2ef824-9259-45c7-828c-cafb8bb5e424" />
+    <field name="mode">extension</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">Odoo Studio: Default list view for x_camping_reservamesas customization</field>
+    <field name="priority">99</field>
+    <field name="type">list</field>
+  </record>
+  <record id="odoo_studio_default__4c49db93-7923-4292-9168-caf345738fda" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <kanban create="false" default_group_by="x_studio_estado" default_order="x_studio_fecha_1 asc, x_studio_hora_1 asc" quick_create="false">
+        <header>
+          <button name="%(action_reserva_mesas_wizard)d" type="action" string="Nueva reserva" class="btn-primary" display="always" />
+          <button string="Imprimir ticket fecha" type="action" name="%(action_reserva_mesas_print_fecha_wizard)d" class="btn-secondary" display="always" />
+        </header>
+        <field name="x_name" />
+        <field name="x_studio_numero_adultos_1" />
+        <field name="x_studio_numero_ninos" />
+        <field name="x_studio_numero_personas" />
+        <field name="x_studio_fecha_1" />
+        <field name="x_studio_hora_1" />
+        <field name="x_studio_notes" />
+        <field name="x_studio_tag_ids" />
+        <templates>
+          <t t-name="card">
+            <div style="width:100%;" name="studio_div_c6900a">
+              <div class="d-flex align-items-stretch border rounded overflow-hidden bg-white" style="width:100%; min-height:72px;" name="studio_div_38ff09">
+                <div class="d-flex flex-column align-items-center justify-content-center text-white fw-bold" style="min-width:70px;" name="studio_div_eae453">
+                  <t t-set="color" t-value="record.x_studio_numero_personas.value &gt;= 9 and '#c62828' or                           record.x_studio_numero_personas.value &gt;= 5 and '#f9a825' or                           '#2e7d32'" />
+                  <div t-att-style="'background-color:' + color + '; color:#fff; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;'" name="studio_div_5a4e6d">
+                    <div style="font-size:14px;" name="studio_div_1d391a">
+                      <t t-esc="record.x_studio_numero_adultos_1.value or 0" />👨🏻 +
+                  <t t-esc="record.x_studio_numero_ninos.value or 0" />👦🏻
+                </div>
+                    <div style="font-size:30px;" name="studio_div_bf4d88">
+                      <field name="x_studio_numero_personas" />
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column align-items-center justify-content-center bg-light text-muted" style="min-width:55px; max-width:60px; padding:4px; text-align:center;" name="studio_div_9ef926">
+                  <div style="font-size:12px; line-height:1.2;" name="studio_div_7ff36b">
+                    <field name="x_studio_fecha_1" />
+                  </div>
+                  <div style="font-size:18px; font-weight:600; line-height:1.2;" name="studio_div_183fa7">
+                    <field name="x_studio_hora_1" />
+                  </div>
+                </div>
+                <div class="py-2 ps-2 pe-2 oe_kanban_global_click d-flex flex-column justify-content-center" style="flex:1; min-height:72px;" name="studio_div_5eceb2">
+                  <div style="font-size:20px; font-weight:600;" name="studio_div_a5c946">
+                    <field name="x_name" />
+                  </div>
+                  <div class="text-muted mt-1" style="font-size:13px;" name="studio_div_6b6b9f">
+                    <field name="x_studio_notes" />
+                  </div>
+                  <div class="mt-1" style="font-size:12px; font-weight:600; display:flex; gap:6px; flex-wrap:wrap;" name="studio_div_66d40b">
+                    <t t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(13)">
+                      <span style="color:#c62828;">COMEDOR</span>
+                    </t>
+                    <t t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(14)">
+                      <span style="color:#1565c0;">BAR</span>
+                    </t>
+                    <t t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(15)">
+                      <span style="color:#2e7d32;">PORCHE BAR</span>
+                    </t>
+                    <t t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(16)">
+                      <span style="color:#ef6c00;">TERRAZA BAR</span>
+                    </t>
+                    <t t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(17)">
+                      <span style="color:#6a1b9a;">SALÓN SOCIAL</span>
+                    </t>
+                    <t t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(18)">
+                      <span style="color:#00838f;">SALÓN TERRAZA</span>
+                    </t>
+                    <t t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(19)">
+                      <span style="color:#ff0080;">PARA LLEVAR</span>
+                    </t>
+                    <t t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(22)">
+                      <span style="color:#ff0080;">BAUTIZO</span>
+                    </t>
+                  </div>
+                </div>
+                <div class="d-flex flex-column align-items-center justify-content-center pe-2" style="min-width:34px; gap:4px;" name="studio_div_1f3dc8">
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(7)" style="font-size:18px;" name="studio_div_7b8ae1">🐶</div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(8)" style="font-size:18px;" name="studio_div_014483">♿</div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(9)" style="font-size:18px;" name="studio_div_9a2c8e">👶🏻</div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(10)" style="font-size:18px;" name="studio_div_emoji_food">🥘</div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(12)" style="font-size:18px;" name="studio_div_emoji_chair">🪑</div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(19)" style="font-size:18px;" name="studio_div_emoji_bag"> 🛍️ </div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(23)" style="font-size:18px;" name="studio_div_emoji_bag"> 1️⃣ </div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(24)" style="font-size:18px;" name="studio_div_emoji_bag"> 2️⃣ </div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(25)" style="font-size:18px;" name="studio_div_emoji_bag"> 3️⃣ </div>
+                  <div t-if="record.x_studio_tag_ids.raw_value &amp;&amp; record.x_studio_tag_ids.raw_value.includes(21)" style="font-size:18px;" name="studio_div_emoji_bag"> 👥 </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+    <field name="mode">primary</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">ReservaMesas Kanban</field>
+    <field name="priority">99</field>
+    <field name="type">kanban</field>
+  </record>
+  <record id="odoo_studio_default__0c1d3dad-30bd-4bef-b5ee-2fbe2fc28183" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="/list//field[@name='x_name']" position="before">
+          <field name="id" optional="show" />
+        </xpath>
+      </data>
+    </field>
+    <field name="inherit_id" ref="default_list_view_fo_84244c52-ac52-47f3-ae1c-e889588a0556" />
+    <field name="mode">extension</field>
+    <field name="model">x_camping_reservamesas_tag</field>
+    <field name="name">Odoo Studio: Default list view for x_camping_reservamesas_tag customization</field>
+    <field name="priority">99</field>
+    <field name="type">list</field>
+  </record>
+  <record id="studio_report_docume_188a2614-b0c8-47d2-ba4c-6ce5f340e8f3" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <t t-name="studio_main_report">
+        <t t-foreach="docs" t-as="doc">
+          <t t-call="web.basic_layout">
+            <t t-call="odoo_restaurant_table_reservation.studio_report_docume_188a2614-b0c8-47d2-ba4c-6ce5f340e8f3_document"/>
+            <p style="page-break-after: always;"/>
+          </t>
+        </t>
+      </t>
+    </field>
+    <field name="key">odoo_restaurant_table_reservation.studio_report_docume_188a2614-b0c8-47d2-ba4c-6ce5f340e8f3</field>
+    <field name="name">odoo_restaurant_table_reservation.studio_report_docume_188a2614-b0c8-47d2-ba4c-6ce5f340e8f3</field>
+    <field name="type">qweb</field>
+    <field name="mode">primary</field>
+  </record>
+
+  <record id="studio_report_docume_188a2614-b0c8-47d2-ba4c-6ce5f340e8f3_document" model="ir.ui.view" context="{'studio': True}">
+    <field name="arch" type="xml">
+      <t t-name="studio_report_document">
+        <t t-if="doc == docs[0]">
+          <div class="page">
+            <div style="width:80mm; max-width:80mm; padding:4mm; font-size:16px; line-height:1.6; font-family:Arial, sans-serif;">
+              <div style="text-align:center; margin-bottom:14px; font-size:20px;">
+                <strong>
+                  RESERVAS DEL <span t-esc="doc.x_studio_fecha_1.strftime('%d-%m-%Y')"/>
+                </strong>
+              </div>
+
+              <t t-set="total_adultos" t-value="0"/>
+              <t t-set="total_ninos" t-value="0"/>
+
+              <t t-foreach="docs" t-as="r">
+                <t t-set="total_adultos" t-value="total_adultos + (r.x_studio_numero_adultos_1 or 0)"/>
+                <t t-set="total_ninos" t-value="total_ninos + (r.x_studio_numero_ninos or 0)"/>
+              </t>
+
+              <div style="margin-top:12px; border-top:2px dashed black; padding-top:8px;">
+                <strong>13:00 | 13:15</strong>
+              </div>
+              <t t-foreach="sorted(docs, key=lambda r: r.x_studio_hora_1)" t-as="reserva">
+                <t t-if="reserva.x_studio_hora_1 == '13:00' or reserva.x_studio_hora_1 == '13:15'">
+                  <div>
+                    <strong t-esc="reserva.display_name"/> | 
+                    <span t-esc="reserva.x_studio_hora_1"/> | 
+                    Ad: <span t-esc="reserva.x_studio_numero_adultos_1"/> | 
+                    Nñ: <span t-esc="reserva.x_studio_numero_ninos"/>
+                  </div>
+                </t>
+              </t>
+
+              <div style="margin-top:12px; border-top:2px dashed black; padding-top:8px;">
+                <strong>13:30 | 13:45</strong>
+              </div>
+              <t t-foreach="sorted(docs, key=lambda r: r.x_studio_hora_1)" t-as="reserva">
+                <t t-if="reserva.x_studio_hora_1 == '13:30' or reserva.x_studio_hora_1 == '13:45'">
+                  <div>
+                    <strong t-esc="reserva.display_name"/> | 
+                    <span t-esc="reserva.x_studio_hora_1"/> | 
+                    Ad: <span t-esc="reserva.x_studio_numero_adultos_1"/> | 
+                    Nñ: <span t-esc="reserva.x_studio_numero_ninos"/>
+                  </div>
+                </t>
+              </t>
+
+              <div style="margin-top:12px; border-top:2px dashed black; padding-top:8px;">
+                <strong>14:00 | 14:15</strong>
+              </div>
+              <t t-foreach="sorted(docs, key=lambda r: r.x_studio_hora_1)" t-as="reserva">
+                <t t-if="reserva.x_studio_hora_1 == '14:00' or reserva.x_studio_hora_1 == '14:15'">
+                  <div>
+                    <strong t-esc="reserva.display_name"/> | 
+                    <span t-esc="reserva.x_studio_hora_1"/> | 
+                    Ad: <span t-esc="reserva.x_studio_numero_adultos_1"/> | 
+                    Nñ: <span t-esc="reserva.x_studio_numero_ninos"/>
+                  </div>
+                </t>
+              </t>
+
+              <div style="margin-top:12px; border-top:2px dashed black; padding-top:8px;">
+                <strong>14:30 | 14:45</strong>
+              </div>
+              <t t-foreach="sorted(docs, key=lambda r: r.x_studio_hora_1)" t-as="reserva">
+                <t t-if="reserva.x_studio_hora_1 == '14:30' or reserva.x_studio_hora_1 == '14:45'">
+                  <div>
+                    <strong t-esc="reserva.display_name"/> | 
+                    <span t-esc="reserva.x_studio_hora_1"/> | 
+                    Ad: <span t-esc="reserva.x_studio_numero_adultos_1"/> | 
+                    Nñ: <span t-esc="reserva.x_studio_numero_ninos"/>
+                  </div>
+                </t>
+              </t>
+
+              <div style="margin-top:12px; border-top:2px dashed black; padding-top:8px;">
+                <strong>15:00 | 15:15</strong>
+              </div>
+              <t t-foreach="sorted(docs, key=lambda r: r.x_studio_hora_1)" t-as="reserva">
+                <t t-if="reserva.x_studio_hora_1 == '15:00' or reserva.x_studio_hora_1 == '15:15'">
+                  <div>
+                    <strong t-esc="reserva.display_name"/> | 
+                    <span t-esc="reserva.x_studio_hora_1"/> | 
+                    Ad: <span t-esc="reserva.x_studio_numero_adultos_1"/> | 
+                    Nñ: <span t-esc="reserva.x_studio_numero_ninos"/>
+                  </div>
+                </t>
+              </t>
+
+              <div style="margin-top:12px; border-top:2px dashed black; padding-top:8px;">
+                <strong>15:30 | 15:45</strong>
+              </div>
+              <t t-foreach="sorted(docs, key=lambda r: r.x_studio_hora_1)" t-as="reserva">
+                <t t-if="reserva.x_studio_hora_1 == '15:30' or reserva.x_studio_hora_1 == '15:45'">
+                  <div>
+                    <strong t-esc="reserva.display_name"/> | 
+                    <span t-esc="reserva.x_studio_hora_1"/> | 
+                    Ad: <span t-esc="reserva.x_studio_numero_adultos_1"/> | 
+                    Nñ: <span t-esc="reserva.x_studio_numero_ninos"/>
+                  </div>
+                </t>
+              </t>
+
+              <div style="margin-top:12px; border-top:2px dashed black; padding-top:8px;">
+                <strong>19:00 - 21:30</strong>
+              </div>
+              <t t-foreach="sorted(docs, key=lambda r: r.x_studio_hora_1)" t-as="reserva">
+                <t t-if="reserva.x_studio_hora_1 == '19:00' or reserva.x_studio_hora_1 == '19:30' or reserva.x_studio_hora_1 == '20:00' or reserva.x_studio_hora_1 == '20:30' or reserva.x_studio_hora_1 == '21:00' or reserva.x_studio_hora_1 == '21:30'">
+                  <div>
+                    <strong t-esc="reserva.display_name"/> | 
+                    <span t-esc="reserva.x_studio_hora_1"/> | 
+                    Ad: <span t-esc="reserva.x_studio_numero_adultos_1"/> | 
+                    Nñ: <span t-esc="reserva.x_studio_numero_ninos"/>
+                  </div>
+                </t>
+              </t>
+
+              <div style="margin-top:14px; border-top:2px solid black; padding-top:8px; font-size:18px;">
+                <strong>TOTAL → Ad: <span t-esc="total_adultos"/> | Nñ: <span t-esc="total_ninos"/></strong>
+              </div>
+            </div>
+          </div>
+        </t>
+      </t>
+    </field>
+    <field name="key">odoo_restaurant_table_reservation.studio_report_docume_188a2614-b0c8-47d2-ba4c-6ce5f340e8f3_document</field>
+    <field name="name">odoo_restaurant_table_reservation.studio_report_docume_188a2614-b0c8-47d2-ba4c-6ce5f340e8f3_document</field>
+    <field name="type">qweb</field>
+    <field name="mode">primary</field>
+  </record>
+
+</odoo>

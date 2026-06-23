@@ -1,0 +1,4 @@
+<odoo>
+  <function model="camping.reservamesas.setup" name="setup_default_tags"/>
+  <function model="camping.reservamesas.setup" name="setup_ticket_tpv_link_field"/>
+</odoo>

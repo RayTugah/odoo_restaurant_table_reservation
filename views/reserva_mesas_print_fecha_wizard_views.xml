@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_reserva_mesas_print_fecha_wizard_form" model="ir.ui.view">
+    <field name="name">reserva.mesas.print.fecha.wizard.form</field>
+    <field name="model">reserva.mesas.print.fecha.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Imprimir ticket por fecha">
+        <sheet>
+          <group>
+            <field name="fecha" />
+          </group>
+        </sheet>
+        <footer>
+          <button name="action_print" type="object" string="Imprimir" class="btn-primary" />
+          <button name="action_download_pdf" type="object" string="Descargar PDF" class="btn-secondary" />
+          <button string="Cancelar" class="btn-secondary" special="cancel" />
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_reserva_mesas_print_fecha_wizard" model="ir.actions.act_window">
+    <field name="name">Imprimir ticket fecha</field>
+    <field name="res_model">reserva.mesas.print.fecha.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="view_reserva_mesas_print_fecha_wizard_form" />
+    <field name="target">new</field>
+  </record>
+</odoo>

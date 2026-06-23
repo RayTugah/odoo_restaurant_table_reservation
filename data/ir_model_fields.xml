@@ -1,0 +1,840 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="descripcion_tickets_ff254c7d-655f-49ed-97a3-ea835b0ef882" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Descripción</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">1</field>
+    <field name="translate">standard</field>
+  </record>
+  <record id="activo_tickets_8f7967f7-dcc6-4a24-b46b-afe3201403da" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Activo</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_active</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">1</field>
+  </record>
+  <record id="notas_tickets_c11bebdc-58b3-4269-9ccd-363f8dd50041" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">html</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Notas</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_notes</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="fecha_tickets_c6731803-dd35-4b27-86ed-48a0d674311f" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_date</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="moneda_tickets_76c9b5f2-2087-4d66-aa1e-54f6a5f77143" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Moneda</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_currency_id</field>
+    <field name="relation">res.currency</field>
+  </record>
+  <record id="valor_tickets_68ac6997-59cc-4c87-b194-5b1bb8e6e849" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">monetary</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Valor</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_value</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">1</field>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="secuencia_tickets_1e3207d8-21cb-47a0-bcf6-34e55af571d6" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Secuencia</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_fecha_y_hora_t_f288e448-4de8-4531-96b6-8c4fc5b05ab4" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha y Hora</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_fecha_y_hora</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="tickets_line_47bc84c2-5094-4238-9d76-c67efa0b12cd" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">X Tickets</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_camping_tickets_id</field>
+    <field name="relation">x_camping_tickets</field>
+  </record>
+  <record id="nuevas_lineas_ticket_f1f170f9-3b31-4494-b0df-7817b76260a0" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">one2many</field>
+    <field name="field_description">PRODUCTOS</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_productos</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_camping_tickets_line_4c46d</field>
+    <field name="relation_field">x_camping_tickets_id</field>
+  </record>
+  <record id="nuevo_decimal_ticket_ce52dbff-a6ff-4c28-a7c4-02566e359d47" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">float</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Cantidad</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_cantidad_1</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_many2one_ticke_c909a1aa-f8ef-4da6-8a27-f6ffab74e868" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Nombre producto</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_nombre_producto</field>
+    <field name="relation">product.template</field>
+  </record>
+  <record id="precio_de_venta_tick_bcc278b4-c861-4354-98c1-5060970b2a6d" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">float</field>
+    <field name="related">x_studio_nombre_producto.list_price</field>
+    <field name="field_description">Precio</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_5i2_1jk63madd</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="currency_tickets_lin_a4af7aa3-d1e9-45e0-8268-be9a8ca0e768" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Currency</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_currency_id</field>
+    <field name="relation">res.currency</field>
+  </record>
+  <record id="nuevo_monetario_tick_7c907d50-68ae-4db2-b609-887987ef9cbe" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    record['x_studio_subtotal'] = (record['x_studio_cantidad_1'] or 0.0) * (record['x_studio_related_field_5i2_1jk63madd'] or 0.0)</field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_studio_related_field_5i2_1jk63madd, x_studio_cantidad_1</field>
+    <field name="field_description">Subtotal</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_subtotal</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="importe_tickets_line_b2ba09e0-a741-4bef-ac44-1d2ea485e4e1" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">float</field>
+    <field name="related">x_studio_nombre_producto.taxes_id.amount</field>
+    <field name="field_description">IVA</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_u3_1jk667e5u</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="secuencia_tickets_li_83f11e3e-4f3e-45c1-a93d-7237359e7e53" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Secuencia</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="descripcion_tickets__ca31d4d2-ad7f-4890-b897-7ad93770ca65" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Descripción</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="translate">standard</field>
+  </record>
+  <record id="nuevo_decimal_ticket_c0218654-afe0-4516-ab49-28be8d5f1766" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">float</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Nuevo Decimal</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_float_field_8e0_1jk63lbja</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_entero_tickets_d90ab4ec-99e5-4130-88b5-7034d308ac81" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Cantidad</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_cantidad</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="currency_copia_ticke_d42f2d72-3636-42c9-be67-59a4af137235" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="related">x_studio_currency_id</field>
+    <field name="field_description">Currency (copia)</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_1qf_1jk645vgg</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">res.currency</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="moneda_tickets_line_759b7e1a-13fa-460e-88f1-1f6cfb6b701b" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="related">x_studio_currency_id.name</field>
+    <field name="field_description">Moneda</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_1vm_1jk646kcu</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="id_copia_tickets_lin_58dcf7cc-014d-4452-8ad8-3d4ee685d3e3" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="related">x_studio_currency_id.id</field>
+    <field name="field_description">ID (copia)</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_3r1_1jk649mmj</field>
+    <field name="on_delete" eval="False"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="nuevo_many2one_ticke_815346cc-24b1-4e04-a9e7-5209073fae75" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Compañía</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_compania</field>
+    <field name="relation">res.company</field>
+  </record>
+  <record id="moneda_copia_tickets_9f95bd94-ccae-4a82-9c59-c153bbb1e798" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="related">x_studio_compania.currency_id</field>
+    <field name="field_description">Moneda (copia)</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_83p_1jk64n766</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">res.currency</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="compania_copia_ticke_ac86a29a-bff3-452e-bde3-8db2df32fe3b" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="related">x_studio_compania</field>
+    <field name="field_description">Compañía (copia)</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_62h_1jk65g7bn</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">res.company</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="compania_copia_ticke_05a5ce72-fcef-44e9-9894-cc67f858271c" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="related">x_studio_compania</field>
+    <field name="field_description">Compañía (copia)</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_cr_1jk65h582</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">res.company</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="nuevo_many2one_ticke_feb17c74-df5f-4397-950e-9d348b570755" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Compañia</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_compania</field>
+    <field name="relation">res.company</field>
+  </record>
+  <record id="compania_tickets_lin_8f3be0d8-3116-4353-ab8c-c4a7093c6bd0" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="related">x_camping_tickets_id.x_studio_compania</field>
+    <field name="field_description">Compañia</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_7de_1jk65hr87</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">res.company</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="moneda_copia_tickets_a9034cda-4a91-4050-bd85-5f5ae4737b39" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="related">x_camping_tickets_id.x_studio_compania.currency_id</field>
+    <field name="field_description">Moneda (copia)</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_63k_1jk65itps</field>
+    <field name="readonly" eval="True"/>
+    <field name="relation">res.currency</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="impuesto_de_ventas_t_84e60fd8-a428-4b7d-8e53-8880d02e2638" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2many</field>
+    <field name="related">x_studio_nombre_producto.taxes_id</field>
+    <field name="field_description">Impuesto de ventas</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_related_field_df_1jk666fjm</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="relation">account.tax</field>
+    <field name="relation_table">x_account_tax_x_camping_tickets_line_rel</field>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="id_copia_tickets_lin_3d058de3-d98c-413a-856c-a0fb10128fbc" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="related">x_studio_nombre_producto.categ_id.id</field>
+    <field name="field_description">ID de categoria</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_id_de_categoria</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="id_copia_tickets_lin_9b9c3329-f533-491a-ad40-7e47e686b96b" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="related">x_studio_nombre_producto.id</field>
+    <field name="field_description">ID de producto</field>
+    <field name="model">x_camping_tickets_line_4c46d</field>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">x_studio_id_de_producto</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+  </record>
+  <record id="nuevo_monetario_tick_6f5b3386-aebb-4011-a391-bf1ef214efe0" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    record['x_studio_total'] = sum(
+        linea.x_studio_subtotal or 0.0
+        for linea in record.x_studio_productos
+    )</field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_studio_productos.x_studio_subtotal</field>
+    <field name="field_description">TOTAL</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_total</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="nuevo_monetario_tick_437486a0-4f34-4558-9c7c-7b9fee8f9e79" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    total_iva = 0.0
+    for linea in record.x_studio_productos:
+        subtotal = linea.x_studio_subtotal or 0.0
+        iva_pct = linea.x_studio_related_field_u3_1jk667e5u or 0.0
+        if iva_pct:
+            total_iva += subtotal * iva_pct / (100.0 + iva_pct)
+    record['x_studio_iva'] = total_iva</field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_studio_productos.x_studio_subtotal, x_studio_productos.x_studio_related_field_u3_1jk667e5u</field>
+    <field name="field_description">IVA</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_iva</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="nuevo_monetario_tick_5b5a387d-3803-49f9-9edf-cca9679f5e3e" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    total = record.x_studio_total or 0.0
+    iva = record.x_studio_iva or 0.0
+    record['x_studio_neto'] = total - iva</field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_studio_total, x_studio_iva</field>
+    <field name="field_description">NETO</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_neto</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="nuevo_monetario_tick_8b2a4c62-1fd7-4580-b117-5ef80da50f5c" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    total = 0.0
+    for linea in record.x_studio_productos:
+        categoria_id = linea.x_studio_id_de_categoria or 0
+        if categoria_id == 46:
+            total += linea.x_studio_subtotal or 0.0
+    record['x_studio_total_piscinas'] = total</field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_studio_productos, x_studio_productos.x_studio_subtotal, x_studio_productos.x_studio_id_de_producto, x_studio_productos.x_studio_id_de_categoria</field>
+    <field name="field_description">TOTAL PISCINAS</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_total_piscinas</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="nuevo_monetario_tick_660752e6-10b1-49a2-b70b-6cd5a81fc990" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    total = 0.0
+    for linea in record.x_studio_productos:
+        categoria_id = linea.x_studio_id_de_categoria or 0
+        if categoria_id == 47:
+            total += linea.x_studio_subtotal or 0.0
+    record['x_studio_total_restaurante'] = total</field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_studio_productos, x_studio_productos.x_studio_subtotal, x_studio_productos.x_studio_id_de_producto, x_studio_productos.x_studio_id_de_categoria</field>
+    <field name="field_description">TOTAL RESTAURANTE</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_total_restaurante</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="nuevo_monetario_tick_7aa92bed-eea0-4ab1-803e-5b84501a1ab6" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    total = 0.0
+    for linea in record.x_studio_productos:
+        categoria_id = linea.x_studio_id_de_categoria or 0
+        if categoria_id not in (46, 47):
+            total += linea.x_studio_subtotal or 0.0
+    record['x_studio_total_otros'] = total</field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_studio_productos, x_studio_productos.x_studio_subtotal, x_studio_productos.x_studio_id_de_producto, x_studio_productos.x_studio_id_de_categoria</field>
+    <field name="field_description">TOTAL OTROS</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_total_otros</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="descripcion_reservam_e98177e9-3497-4274-a08d-a9cffac01bf7" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Descripción</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_name</field>
+    <field name="on_delete" eval="False"/>
+    <field name="required" eval="True"/>
+    <field name="tracking">1</field>
+    <field name="translate">standard</field>
+  </record>
+  <record id="activo_reservamesas_b02b4d98-e294-4f42-8d59-1b4c088f2574" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Activo</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_active</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">1</field>
+  </record>
+  <record id="contacto_reservamesa_46a3220d-24cf-4bb5-b97f-1699fa08f07f" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Contacto</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_partner_id</field>
+    <field name="relation">res.partner</field>
+    <field name="tracking">1</field>
+  </record>
+  <record id="telefono_reservamesa_b94e6774-3b1c-4373-9c7e-89a294109272" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="related">x_studio_partner_id.phone</field>
+    <field name="field_description">Teléfono</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_partner_phone</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">2</field>
+  </record>
+  <record id="correo_electronico_r_24462f64-7434-43c4-9476-dd1e2df584d9" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="related">x_studio_partner_id.email</field>
+    <field name="field_description">Correo electrónico</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_partner_email</field>
+    <field name="on_delete" eval="False"/>
+    <field name="tracking">1</field>
+  </record>
+  <record id="notas_reservamesas_71f752a6-497d-47de-8cb5-a868d6365e91" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">html</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Notas</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_notes</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="fecha_de_finalizacio_cf4aea38-5699-4270-a450-d25ceb7267b7" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha de finalización</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_date_stop</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="fecha_de_inicio_rese_0fc3511b-03ce-46b6-a4ce-82d6db571567" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha de inicio</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_date_start</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="secuencia_reservames_3006e1c5-13b7-4702-89e0-c05e21d86168" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Secuencia</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_sequence</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="etiquetas_reservames_601374ca-62c4-4d09-9f6a-80405c93836f" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2many</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Etiquetas</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_tag_ids</field>
+    <field name="on_delete" eval="False"/>
+    <field name="relation">x_camping_reservamesas_tag</field>
+    <field name="relation_table">x_camping_reservamesas_tag_rel</field>
+  </record>
+  <record id="nuevo_entero_reserva_8c8e1c32-9008-491b-91e9-5cb32491ab97" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Número Adultos</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_numero_adultos_1</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_entero_reserva_9e3a6f7e-576c-4811-8872-175c4e3fb190" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Número Niños</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_numero_ninos</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_entero_reserva_b5588dfa-0fc3-42d3-89c6-a911ebed0083" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    record['x_studio_numero_personas'] = (record.x_studio_numero_adultos_1 or 0) + (record.x_studio_numero_ninos or 0)</field>
+    <field name="ttype">integer</field>
+    <field name="depends">x_studio_numero_adultos_1,x_studio_numero_ninos</field>
+    <field name="field_description">Número personas</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_numero_personas</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+  </record>
+  <record id="nuevo_texto_reservam_fc7ea420-b4cf-44c9-b85d-beff26ccdac1" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Reserva Piscina Vinculada</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_idreservapiscina_1</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_seleccion_rese_4eec37ca-965c-4237-b3a1-2e5d1afe7428" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Estado</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_estado</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('RESERVA', 'RESERVA'), ('SENTADO', 'SENTADO')]</field>
+  </record>
+  <record id="nuevo_casilla_de_ver_cb5a7475-db7f-4a81-acbc-039840641466" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">boolean</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Sentar</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_sentar</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_fecha_reservam_34e8068a-d80e-4cff-9997-87a7621fda98" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha Filtro</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_fecha_filtro</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_fecha_y_hora_r_4775cb37-f08f-4942-9eb9-eb1b47aeee77" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">datetime</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha y Hora</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_fecha_y_hora</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_texto_reservam_86e84710-1273-40f9-b8d9-0cb963a264d1" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_fecha</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_texto_reservam_01f8ae87-5bde-4be5-9e32-2d860cc015cf" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    if record.x_studio_date_start:
+        local_dt = record._fields['x_studio_date_start'].context_timestamp(record, record.x_studio_date_start)
+        record['x_studio_hora'] = local_dt.strftime('%H:%M')
+    else:
+        record['x_studio_hora'] = False</field>
+    <field name="ttype">char</field>
+    <field name="depends">x_studio_date_start</field>
+    <field name="field_description">Hora</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_hora</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+  </record>
+  <record id="nuevo_fecha_reservam_da44fa5c-7792-49b6-9877-e4df8c8281a8" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    if record.x_studio_date_start:
+        local_dt = record._fields['x_studio_date_start'].context_timestamp(record, record.x_studio_date_start)
+        record['x_studio_fecha_2'] = local_dt.date()
+    else:
+        record['x_studio_fecha_2'] = False</field>
+    <field name="ttype">date</field>
+    <field name="depends">x_studio_date_start</field>
+    <field name="field_description">fecha</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_fecha_2</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+  </record>
+  <record id="nuevo_seleccion_rese_6557370a-7770-455e-86fc-5b220fdba2ea" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">selection</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Hora</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_hora_1</field>
+    <field name="on_delete" eval="False"/>
+    <field name="selection">[('13:00', '13:00'), ('13:15', '13:15'), ('13:30', '13:30'), ('13:45', '13:45'), ('14:00', '14:00'), ('14:15', '14:15'), ('14:30', '14:30'), ('14:45', '14:45'), ('15:00', '15:00'), ('15:15', '15:15'), ('15:30', '15:30'), ('15:45', '15:45'), ('19:00', '19:00'), ('19:30', '19:30'), ('20:00', '20:00'), ('20:30', '20:30'), ('21:00', '21:00'), ('21:30', '21:30'), ('SIN HORA', 'SIN HORA')]</field>
+  </record>
+  <record id="nuevo_fecha_reservam_8a5bc056-b224-49de-826a-d80161783f7b" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_fecha_1</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_html_reservame_da31312b-bf4b-4d97-9069-8be44b9cc221" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">html</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Observaciones Externas</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_observaciones_externas</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_texto_multilin_60260e88-b7ac-4720-b346-4dddad94b049" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Observaciones Externas</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_observaciones_externas_1</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_texto_reservam_d88da3f7-c35f-469c-934c-b3044bef596f" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Observaciones Externas</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_char_field_67t_1jmoeoio0</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_many2one_reser_0ffcf042-7281-4825-b812-5f86e79b5e63" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Nuevo Many2One</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_many2one_field_5vd_1jmqt9q2r</field>
+    <field name="relation">sale.order.template</field>
+  </record>
+  <record id="nuevo_many2one_reser_de43672c-c4e6-46ca-bd2b-ebcbb6dc96e9" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Pedido de venta vinculado</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_pedido_de_venta_vinculado</field>
+    <field name="relation">sale.order</field>
+  </record>
+  <record id="nuevo_many2one_reser_691e8f68-4b9d-404c-8895-c45866a94073" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Ticket TPV Vinculado</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_ticket_tpv_vinculado</field>
+    <field name="relation">x_tickets</field>
+  </record>
+  <record id="nuevo_entero_tickets_f915cb43-faa1-4612-8bbc-a9f47b68f6b0" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">integer</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Numero personas</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_numero_personas</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_decimal_ticket_a247b5a4-7616-447e-b976-81c0721525a4" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    record['x_studio_total_por_persona'] = (record.x_studio_total or 0) * (record.x_studio_numero_personas or 0)</field>
+    <field name="ttype">float</field>
+    <field name="depends">x_studio_total, x_studio_numero_personas</field>
+    <field name="field_description">Total para grupo</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_total_por_persona</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+  </record>
+  <record id="nuevo_monetario_tick_19fa1127-ec57-4418-a9f7-037725c308e5" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    record['x_studio_total_grupo'] = (record.x_studio_total or 0) * (record.x_studio_numero_personas or 0)</field>
+    <field name="ttype">monetary</field>
+    <field name="depends">x_studio_total, x_studio_numero_personas</field>
+    <field name="field_description">Total grupo</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_total_grupo</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="currency_field">x_studio_currency_id</field>
+  </record>
+  <record id="nuevo_fecha_tickets_3f446a30-18c2-4cc1-a62b-742e6a23a86a" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">date</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Fecha grupo</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_fecha_grupo</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_texto_multilin_a562bca0-ff58-4cb5-bd4c-4a7d916dc9de" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">OBSERVACIONES EXTERNAS</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_observaciones_externas</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_texto_tickets_11bfb24a-8600-46ae-9a86-91f7b55d6431" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">char</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Teléfono contacto</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_telefono_contacto</field>
+    <field name="on_delete" eval="False"/>
+  </record>
+  <record id="nuevo_many2one_ticke_dd676abf-33f2-4ba0-8c3f-5f313002fb3a" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Reserva de mesa vinculada</field>
+    <field name="model">x_camping_tickets</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">x_studio_reserva_de_mesa_vinculada</field>
+    <field name="relation">x_camping_reservamesas</field>
+  </record>
+  <record id="nuevo_texto_reservam_41742a1f-04d8-4b69-b060-9a2ff1e1aa77" model="ir.model.fields" context="{'studio': True}">
+    <field name="compute">for record in self:
+    record['x_studio_fecha_formateada'] = record.x_studio_fecha_1.strftime('%d-%m-%Y') if record.x_studio_fecha_1 else ''</field>
+    <field name="ttype">char</field>
+    <field name="depends">x_studio_fecha_1</field>
+    <field name="field_description">Fecha Formateada</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_fecha_formateada</field>
+    <field name="on_delete" eval="False"/>
+    <field name="readonly" eval="True"/>
+  </record>
+  <record id="nuevo_many2one_reser_75800ddf-011e-485d-b3cd-03cb26fb5845" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Reserva de Mesa Vinculada</field>
+    <field name="model">pool.capacity.day.reservation</field>
+    <field name="model_id" ref="pool_reservation_capacity.model_pool_capacity_day_reservation"/>
+    <field name="name">x_camping_reserva_mesa_vinculada</field>
+    <field name="relation">x_camping_reservamesas</field>
+  </record>
+  <record id="nuevo_many2one_reser_22384739-ca10-4d03-aff7-3be4ef02d88b" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Reserva piscina vinculada</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">x_studio_reserva_piscina_vinculada</field>
+    <field name="relation">pool.capacity.day.reservation</field>
+  </record>
+  <record id="nuevo_many2one_reser_43a3b7dd-b938-4690-8bcf-09bc325ba4aa" model="ir.model.fields" context="{'studio': True}">
+    <field name="ttype">many2one</field>
+    <field name="copied" eval="True"/>
+    <field name="field_description">Reserva de Mesa Manual</field>
+    <field name="model">pool.capacity.day.reservation</field>
+    <field name="model_id" ref="pool_reservation_capacity.model_pool_capacity_day_reservation"/>
+    <field name="name">x_camping_reserva_mesa_manual</field>
+    <field name="relation">x_camping_reservamesas</field>
+  </record>
+</odoo>

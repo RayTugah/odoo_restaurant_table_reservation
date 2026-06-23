@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_reserva_mesas_wizard_user,reserva.mesas.wizard user,model_reserva_mesas_wizard,base.group_user,1,1,1,1
+access_reserva_mesas_print_fecha_wizard_user,reserva.mesas.print.fecha.wizard user,model_reserva_mesas_print_fecha_wizard,base.group_user,1,1,1,1

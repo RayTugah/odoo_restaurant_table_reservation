@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+
+# Odoo / local
+*.log
+*.pot
+*.pyc
+.DS_Store
+.idea/
+.vscode/
+
+# Archives
+*.zip

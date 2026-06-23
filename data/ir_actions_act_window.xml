@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo><record id="reservamesas_0eceabb9-3db7-4cfd-a5bb-3cdb3750e7a6" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help">&lt;p class="o_view_nocontent_smiling_face"&gt;
+                    Esta es tu nueva acción.
+                &lt;/p&gt;
+                &lt;p&gt;Por defecto, contiene una lista y una vista de formulario y posiblemente
+                    otros tipos de vista dependiendo de las opciones que hayas elegido para tu modelo.
+                &lt;/p&gt;
+                &lt;p&gt;
+                    Puede empezar a personalizar estas pantallas haciendo clic en el icono de Studio en la
+                    esquina superior derecha (también puede personalizar este mensaje de ayuda allí).
+                &lt;/p&gt;
+            </field>
+    <field name="name">ReservaMesas</field>
+    <field name="res_model">x_camping_reservamesas</field>
+    <field name="search_view_id" ref="default_search_view__cc5d1835-4261-473f-bf72-f175044ff6db"/>
+    <field name="domain">["|", ("x_studio_fecha_1", "&gt;", "today"), "&amp;", ("x_studio_fecha_1", "&gt;=", "today"), ("x_studio_fecha_1", "&lt;", "today +1d")]</field>
+    <field name="context">{'group_by': ['x_studio_fecha_1:day']}</field>
+    <field name="usage">Acción</field>
+    <field name="view_mode">kanban,list,form</field>
+  </record>
+  <record id="reservamesas_tags_707dab77-dd9b-4189-bfe4-1de11319cb0d" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="help">&lt;p class="o_view_nocontent_smiling_face"&gt;
+                    Esta es tu nueva acción.
+                &lt;/p&gt;
+                &lt;p&gt;Por defecto, contiene una lista y una vista de formulario y posiblemente
+                    otros tipos de vista dependiendo de las opciones que hayas elegido para tu modelo.
+                &lt;/p&gt;
+                &lt;p&gt;
+                    Puede empezar a personalizar estas pantallas haciendo clic en el icono de Studio en la
+                    esquina superior derecha (también puede personalizar este mensaje de ayuda allí).
+                &lt;/p&gt;
+            </field>
+    <field name="name">ReservaMesas Tags</field>
+    <field name="res_model">x_camping_reservamesas_tag</field>
+  </record>
+  </odoo>

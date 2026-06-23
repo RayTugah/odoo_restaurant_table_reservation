@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo><record id="numero_de_ticket_aut_012aab1c-12ca-4481-bdcf-cf5fb1dc7431" model="base.automation" context="{'studio': True}">
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('actualizar_tickets_d4e8d10c-f0e0-4ba7-a2aa-c74ac37dbdd8')])]"/>
+    <field name="trigger">on_create</field>
+    <field name="name">Numero de ticket automatico</field>
+  </record>
+  <record id="fecha_y_hora_automat_39008425-b4b8-4725-a2de-d9dbadb10ac2" model="base.automation" context="{'studio': True}">
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('actualizar_tickets_a5bfc9de-4f6b-4838-bcb8-343578227dea')])]"/>
+    <field name="trigger">on_create</field>
+    <field name="name">Fecha y hora automaticos</field>
+  </record>
+  <record id="compania_auto_7ab330de-8413-4d18-8ffa-72a49e2b5285" model="base.automation" context="{'studio': True}">
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('ejecutar_codigo_41206a7c-07b4-4897-bddb-e32eab8fd883')])]"/>
+    <field name="trigger">on_create</field>
+    <field name="name">compañia auto</field>
+  </record>
+  <record id="productos_auto_8fd19210-459d-4d72-b1d8-6b73168043d7" model="base.automation" context="{'studio': True}">
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('ejecutar_codigo_3db7491c-d0a6-45cc-8137-08ba30f2aa8c')])]"/>
+    <field name="trigger">on_create</field>
+    <field name="name">productos auto</field>
+  </record>
+  <record id="copiar_telefono_auto_50f49dfc-7749-4ce4-927a-ac3a11c48b22" model="base.automation" context="{'studio': True}">
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('ejecutar_codigo_93a5226c-3dd0-4d69-9367-bc77284273fb')])]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="name">Copiar teléfono y ticket auto</field>
+    <field name="trigger_field_ids" eval="[(6, 0, [ref('nuevo_many2one_reser_691e8f68-4b9d-404c-8895-c45866a94073')])]"/>
+  </record>
+  <record id="crear_mesa_auto_7aa6f92e-7058-4e9a-8ab3-53e218b61cbd" model="base.automation" context="{'studio': True}">
+    <field name="model_id" ref="pool_reservation_capacity.model_pool_capacity_day_reservation"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('ejecutar_codigo_ffb3ed15-70b0-413b-824d-3deb8187bd58')])]"/>
+    <field name="trigger">on_create</field>
+    <field name="name">crear mesa auto</field>
+  </record>
+  <record id="modificar_mesa_auto_0e0b8922-947a-45bf-8ff6-38fab5b4f62a" model="base.automation" context="{'studio': True}">
+    <field name="model_id" ref="pool_reservation_capacity.model_pool_capacity_day_reservation"/>
+    <field name="action_server_ids" eval="[(6, 0, [ref('ejecutar_codigo_831b18dd-dab6-43c6-8093-a5fd6f6785d2')])]"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="name">modificar mesa auto</field>
+    <field name="trigger_field_ids" eval="[(6, 0, [ref('pool_reservation_capacity.field_pool_capacity_day_reservation__adult_qty'), ref('pool_reservation_capacity.field_pool_capacity_day_reservation__capacity_date'), ref('pool_reservation_capacity.field_pool_capacity_day_reservation__child_qty'), ref('pool_reservation_capacity.field_pool_capacity_day_reservation__product_id'), ref('pool_reservation_capacity.field_pool_capacity_day_reservation__state')])]"/>
+  </record>
+</odoo>

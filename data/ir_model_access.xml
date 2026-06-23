@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo><record id="tickets_group_system_c5f13f62-040b-4f81-91ed-e9c23b18eded" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">tickets group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="tickets_group_user_771619e6-b011-4d6f-846b-8aa5b8d3cd17" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="name">tickets group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="reservamesas_group_s_73ca89bb-73d8-402c-bdd2-d89b857ee63a" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">ReservaMesas group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="reservamesas_group_u_7b34abc2-0bcd-4667-aea1-0dddcdd1d54a" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="name">ReservaMesas group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="reservamesas_tags_gr_35a8490d-8ba0-49ed-b1ae-62b87bc1a2c5" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="model_x_camping_reservamesas_tag"/>
+    <field name="name">ReservaMesas Tags group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="reservamesas_tags_gr_18aa50a3-9f57-4902-a3ab-eb4a76404a43" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="model_x_camping_reservamesas_tag"/>
+    <field name="name">ReservaMesas Tags group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+
+  <record id="tickets_line_group_s_0399f40e-9971-4849-8991-a9a6e13a3927" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">tickets_line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="tickets_line_group_u_1e7916b1-60c8-460f-9564-0cacb8e30bb3" model="ir.model.access" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="tickets_line_182e9b47-b1b9-43b2-bed3-d8fba20a49ea"/>
+    <field name="name">tickets_line group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  </odoo>

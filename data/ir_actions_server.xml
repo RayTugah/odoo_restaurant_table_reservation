@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo><record id="actualizar_tickets_d4e8d10c-f0e0-4ba7-a2aa-c74ac37dbdd8" model="ir.actions.server" context="{'studio': True}">
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="update_path">x_name</field>
+    <field name="state">object_write</field>
+    <field name="crud_model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="evaluation_type">equation</field>
+    <field name="name">Actualizar tickets</field>
+    <field name="update_field_id" ref="descripcion_tickets_ff254c7d-655f-49ed-97a3-ea835b0ef882"/>
+    <field name="usage">base_automation</field>
+    <field name="value">'TPV-%08d' % record.id</field>
+  </record>
+  <record id="actualizar_tickets_a5bfc9de-4f6b-4838-bcb8-343578227dea" model="ir.actions.server" context="{'studio': True}">
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="update_path">x_studio_fecha_y_hora</field>
+    <field name="state">object_write</field>
+    <field name="crud_model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="evaluation_type">equation</field>
+    <field name="name">Actualizar tickets</field>
+    <field name="update_field_id" ref="nuevo_fecha_y_hora_t_f288e448-4de8-4531-96b6-8c4fc5b05ab4"/>
+    <field name="usage">base_automation</field>
+    <field name="value">datetime.datetime.now()</field>
+  </record>
+  <record id="ejecutar_codigo_41206a7c-07b4-4897-bddb-e32eab8fd883" model="ir.actions.server" context="{'studio': True}">
+    <field name="code">for record in records:
+    if not record.x_studio_compania:
+        record.write({'x_studio_compania': env.company.id})</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="state">code</field>
+    <field name="name">Ejecutar código</field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="ejecutar_codigo_3db7491c-d0a6-45cc-8137-08ba30f2aa8c" model="ir.actions.server" context="{'studio': True}">
+    <field name="code">for record in records:
+    if not record.x_studio_productos:
+        record.write({
+            'x_studio_productos': [
+                (0, 0, {
+                    'x_studio_nombre_producto': 58,
+                    'x_studio_cantidad': 0,
+                }),
+                (0, 0, {
+                    'x_studio_nombre_producto': 57,
+                    'x_studio_cantidad': 0,
+                }),
+                (0, 0, {
+                    'x_studio_nombre_producto': 56,
+                    'x_studio_cantidad': 0,
+                }),
+                (0, 0, {
+                    'x_studio_nombre_producto': 54,
+                    'x_studio_cantidad': 0,
+                }),
+                (0, 0, {
+                    'x_studio_nombre_producto': 55,
+                    'x_studio_cantidad': 0,
+                }),
+                (0, 0, {
+                    'x_studio_nombre_producto': 53,
+                    'x_studio_cantidad': 0,
+                }),
+                (0, 0, {
+                    'x_studio_nombre_producto': 52,
+                    'x_studio_cantidad': 0,
+                }),
+            ]
+        })</field>
+    <field name="model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="state">code</field>
+    <field name="evaluation_type">equation</field>
+    <field name="name">Ejecutar código</field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="ejecutar_codigo_93a5226c-3dd0-4d69-9367-bc77284273fb" model="ir.actions.server" context="{'studio': True}">
+    <field name="code">for record in records:
+    ticket_nuevo = record.x_studio_ticket_tpv_vinculado
+
+    # Asegurar el campo nuevo en x_tickets que enlaza con el modelo independiente
+    env['camping.reservamesas.setup'].sudo().setup_ticket_tpv_link_field()
+
+    # Limpiar tickets antiguos vinculados a esta reserva nueva
+    tickets_antiguos = env['x_tickets'].sudo().search([
+        ('x_camping_reserva_mesa_vinculada', '=', record.id)
+    ])
+
+    if ticket_nuevo:
+        tickets_antiguos = tickets_antiguos.filtered(lambda t: t.id != ticket_nuevo.id)
+
+    for ticket in tickets_antiguos:
+        ticket.write({
+            'x_studio_telefono_contacto': False,
+            'x_camping_reserva_mesa_vinculada': False,
+            'x_studio_fecha_grupo': False,
+            'x_studio_numero_personas': False,
+        })
+
+    # Escribir datos de la reserva en el ticket TPV seleccionado
+    if ticket_nuevo:
+        ticket_nuevo.sudo().write({
+            'x_studio_telefono_contacto': record.x_studio_partner_phone or False,
+            'x_camping_reserva_mesa_vinculada': record.id,
+            'x_studio_fecha_grupo': record.x_studio_fecha_1 or False,
+            'x_studio_numero_personas': record.x_studio_numero_personas or 0,
+        })</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="state">code</field>
+    <field name="name">Ejecutar código</field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="ejecutar_codigo_ffb3ed15-70b0-413b-824d-3deb8187bd58" model="ir.actions.server" context="{'studio': True}">
+    <field name="code">for record in records:
+
+    if not record.product_id:
+        continue
+
+    if record.product_id.id not in [6051, 6053]:
+        continue
+
+    if record.x_camping_reserva_mesa_vinculada:
+        continue
+
+    reserva_mesa = env['x_camping_reservamesas'].sudo().create({
+        'x_name': record.partner_id.name if record.partner_id else 'Reserva sin cliente',
+        'x_studio_partner_id': record.partner_id.id if record.partner_id else False,
+        'x_studio_fecha_1': record.capacity_date,
+        'x_studio_hora_1': 'SIN HORA',
+        'x_studio_numero_adultos_1': record.adult_qty or 0,
+        'x_studio_numero_ninos': record.child_qty or 0,
+        'x_studio_pedido_de_venta_vinculado': record.sale_order_id.id if record.sale_order_id else False,
+        'x_studio_reserva_piscina_vinculada': record.id,
+    })
+
+    record.sudo().write({
+        'x_camping_reserva_mesa_vinculada': reserva_mesa.id
+    })</field>
+    <field name="model_id" ref="pool_reservation_capacity.model_pool_capacity_day_reservation"/>
+    <field name="state">code</field>
+    <field name="name">Ejecutar código</field>
+    <field name="usage">base_automation</field>
+  </record>
+  <record id="ejecutar_codigo_831b18dd-dab6-43c6-8093-a5fd6f6785d2" model="ir.actions.server" context="{'studio': True}">
+    <field name="code">for record in records:
+
+    # Si está cancelada, eliminar la mesa vinculada
+    if record.state == 'cancel':
+
+        if record.x_camping_reserva_mesa_vinculada:
+
+            reserva_mesa = record.x_camping_reserva_mesa_vinculada
+
+            record.sudo().write({
+                'x_camping_reserva_mesa_vinculada': False
+            })
+
+            reserva_mesa.sudo().unlink()
+
+        continue
+
+    # Si cambia a producto SIN mesa, eliminar la mesa vinculada
+    if record.product_id and record.product_id.id in [6050, 6052]:
+
+        if record.x_camping_reserva_mesa_vinculada:
+
+            reserva_mesa = record.x_camping_reserva_mesa_vinculada
+
+            record.sudo().write({
+                'x_camping_reserva_mesa_vinculada': False
+            })
+
+            reserva_mesa.sudo().unlink()
+
+        continue
+
+    # Si es producto CON mesa y NO está cancelada, actualizar o crear mesa
+    if record.product_id and record.product_id.id in [6051, 6053]:
+
+        if record.x_camping_reserva_mesa_vinculada:
+
+            record.x_camping_reserva_mesa_vinculada.sudo().write({
+                'x_name': record.partner_id.name if record.partner_id else 'Reserva sin cliente',
+                'x_studio_fecha_1': record.capacity_date,
+                'x_studio_numero_adultos_1': record.adult_qty or 0,
+                'x_studio_numero_ninos': record.child_qty or 0,
+                'x_studio_partner_id': record.partner_id.id if record.partner_id else False,
+                'x_studio_pedido_de_venta_vinculado': record.sale_order_id.id if record.sale_order_id else False,
+                'x_studio_reserva_piscina_vinculada': record.id,
+            })
+
+        else:
+
+            reserva_mesa = env['x_camping_reservamesas'].sudo().create({
+                'x_name': record.partner_id.name if record.partner_id else 'Reserva sin cliente',
+                'x_studio_partner_id': record.partner_id.id if record.partner_id else False,
+                'x_studio_fecha_1': record.capacity_date,
+                'x_studio_hora_1': 'SIN HORA',
+                'x_studio_numero_adultos_1': record.adult_qty or 0,
+                'x_studio_numero_ninos': record.child_qty or 0,
+                'x_studio_pedido_de_venta_vinculado': record.sale_order_id.id if record.sale_order_id else False,
+                'x_studio_reserva_piscina_vinculada': record.id,
+            })
+
+            record.sudo().write({
+                'x_camping_reserva_mesa_vinculada': reserva_mesa.id
+            })</field>
+    <field name="model_id" ref="pool_reservation_capacity.model_pool_capacity_day_reservation"/>
+    <field name="state">code</field>
+    <field name="name">Ejecutar código</field>
+    <field name="usage">base_automation</field>
+  </record>
+
+  <record id="action_imprimir_ticket_fecha" model="ir.actions.server">
+    <field name="name">Imprimir ticket fecha</field>
+    <field name="model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="state">code</field>
+    <field name="code">today = datetime.date.today()
+reservas = env['x_camping_reservamesas'].sudo().search([
+    ('x_studio_fecha_1', '=', today),
+], order='x_studio_hora_1 asc, x_name asc')
+if reservas:
+    informe = env.ref('odoo_restaurant_table_reservation.reservamesas_informe_59ff79a0-138c-4cef-a7f8-6f8a7d89043f').sudo()
+    pdf_content, content_type = informe._render_qweb_pdf(informe.report_name, reservas.ids)
+    fecha_txt = today.strftime('%d-%m-%Y')
+    nombre = 'ticketmesas-' + fecha_txt + '.pdf'
+    adjunto = env['ir.attachment'].sudo().create({
+        'name': nombre,
+        'type': 'binary',
+        'datas': b64encode(pdf_content).decode('utf-8'),
+        'res_model': 'x_camping_reservamesas',
+        'res_id': reservas.ids and reservas.ids[0] or False,
+        'mimetype': 'application/pdf',
+    })
+    action = {
+        'type': 'ir.actions.act_url',
+        'url': '/web/content/' + str(adjunto.id) + '?download=true',
+        'target': 'self',
+    }
+else:
+    action = {
+        'type': 'ir.actions.client',
+        'tag': 'display_notification',
+        'params': {
+            'title': 'Sin reservas',
+            'message': 'No hay reservas de mesa para imprimir en la fecha de hoy.',
+            'type': 'warning',
+            'sticky': False,
+        }
+    }</field>
+  </record>
+</odoo>

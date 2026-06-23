@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="paperformat_ticket_reservamesas" model="report.paperformat">
+    <field name="name">TICKETS ReservaMesas</field>
+    <field name="format">custom</field>
+    <field name="orientation">Portrait</field>
+    <field name="margin_top">0</field>
+    <field name="margin_bottom">0</field>
+    <field name="margin_left">0</field>
+    <field name="margin_right">0</field>
+    <field name="page_width">80</field>
+    <field name="page_height">297</field>
+    <field name="dpi">110</field>
+    <field name="header_line" eval="False"/>
+    <field name="header_spacing">0</field>
+    <field name="disable_shrinking" eval="True"/>
+  </record><record id="tickets_informe_c299c62b-6072-409d-8e38-407662f9d6f9" model="ir.actions.report" context="{'studio': True}">
+    <field name="binding_model_id" ref="tickets_3cbe0d81-de49-49ec-90dc-551f74dcb62e"/>
+    <field name="model">x_camping_tickets</field>
+    <field name="name">tickets Informe</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">odoo_restaurant_table_reservation.studio_report_docume_4a1d3753-00a7-4f9d-b231-b7a28184af8a</field>
+  </record>
+  <record id="reservamesas_informe_59ff79a0-138c-4cef-a7f8-6f8a7d89043f" model="ir.actions.report" context="{'studio': True}">
+    <field name="binding_model_id" ref="reservamesas_2dd7aec8-e4a5-4bcf-9780-5266a9d58d6a"/>
+    <field name="binding_type">report</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="model">x_camping_reservamesas</field>
+    <field name="name">TicketMesas</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="print_report_name">'ticketmesas-%s' % object.x_studio_fecha_1.strftime('%d-%m-%Y')</field>
+    <field name="paperformat_id" ref="paperformat_ticket_reservamesas"/>
+    <field name="report_name">odoo_restaurant_table_reservation.studio_report_docume_188a2614-b0c8-47d2-ba4c-6ce5f340e8f3</field>
+  </record>
+  </odoo>

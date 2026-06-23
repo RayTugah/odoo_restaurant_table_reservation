@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo><record id="activo_tickets_84c6317a-d8c3-4ec7-b0b7-de0814808618" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="activo_tickets_8f7967f7-dcc6-4a24-b46b-afe3201403da"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="moneda_tickets_64d349c7-b73f-4348-84c2-6f07f74a0ae4" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="moneda_tickets_76c9b5f2-2087-4d66-aa1e-54f6a5f77143"/>
+    <field name="json_value">125</field>
+  </record>
+  <record id="secuencia_tickets_cc7136a9-455d-4725-b7b9-2c5cfa4ca972" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="secuencia_tickets_1e3207d8-21cb-47a0-bcf6-34e55af571d6"/>
+    <field name="json_value">10</field>
+  </record>
+  <record id="fecha_y_hora_tickets_bab229ec-3400-453b-b89f-3baa07bb7ca3" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="nuevo_fecha_y_hora_t_f288e448-4de8-4531-96b6-8c4fc5b05ab4"/>
+    <field name="json_value">""</field>
+  </record>
+  <record id="activo_reservamesas_0840cadf-9907-4ce0-a952-2b4f2ba54f84" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="activo_reservamesas_b02b4d98-e294-4f42-8d59-1b4c088f2574"/>
+    <field name="json_value">true</field>
+  </record>
+  <record id="secuencia_reservames_f22ef9a1-ca05-468e-a8b7-2e2024145039" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="secuencia_reservames_3006e1c5-13b7-4702-89e0-c05e21d86168"/>
+    <field name="json_value">10</field>
+  </record>
+  <record id="nuevo_entero_reserva_a2f80cff-c79c-4259-ad04-ad5e903c2b9c" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="nuevo_entero_reserva_b5588dfa-0fc3-42d3-89c6-a911ebed0083"/>
+    <field name="json_value">"0"</field>
+  </record>
+  <record id="estado_reservamesas_1455c7d3-cc0f-4d10-a4b1-e3b3cd4ad38e" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="nuevo_seleccion_rese_4eec37ca-965c-4237-b3a1-2e5d1afe7428"/>
+    <field name="json_value">"RESERVA"</field>
+  </record>
+  <record id="sentar_reservamesas_aef4143b-1644-4fa7-9f8e-552ee1398e37" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="nuevo_casilla_de_ver_cb5a7475-db7f-4a81-acbc-039840641466"/>
+    <field name="json_value">false</field>
+  </record>
+  <record id="nuevo_entero_reserva_f7a693de-3c03-4bef-8afb-14dbb2647000" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="nuevo_entero_reserva_8c8e1c32-9008-491b-91e9-5cb32491ab97"/>
+    <field name="json_value">""</field>
+  </record>
+  <record id="nuevo_entero_reserva_e55a8ecb-f97c-4bbd-8cae-f7ff67ded7d1" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="nuevo_entero_reserva_9e3a6f7e-576c-4811-8872-175c4e3fb190"/>
+    <field name="json_value">""</field>
+  </record>
+  <record id="fecha_reservamesas_e5b71ada-4119-4511-ac3c-8609d832305a" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="nuevo_fecha_reservam_8a5bc056-b224-49de-826a-d80161783f7b"/>
+    <field name="json_value">""</field>
+  </record>
+  <record id="nuevo_entero_tickets_1bbc2ac8-993a-4677-8f4c-c4ba2f5a0475" model="ir.default" context="{'studio': True}">
+    <field name="field_id" ref="nuevo_entero_tickets_f915cb43-faa1-4612-8bbc-a9f47b68f6b0"/>
+    <field name="json_value">"0"</field>
+  </record>
+  </odoo>

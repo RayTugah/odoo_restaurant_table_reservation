@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo><record id="reserva_mesas_02893616-73c5-4091-8278-fbcbc78dc794" model="ir.ui.menu" context="{'studio': True}">
+    <field name="name">RESERVA MESAS</field>
+    <field name="web_icon">odoo_restaurant_table_reservation,static/description/icon.png</field>
+  </record>
+  <record id="reserva_mesas_reserv_9a5b098f-d08e-452a-ba79-ed2efa5788ec" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="reservamesas_0eceabb9-3db7-4cfd-a5bb-3cdb3750e7a6"/>
+    <field name="name">ReservaMesas</field>
+    <field name="parent_id" ref="reserva_mesas_02893616-73c5-4091-8278-fbcbc78dc794"/>
+  </record>
+  <record id="reserva_mesas_config_155baf3f-f544-4f71-b457-620c5df08862" model="ir.ui.menu" context="{'studio': True}">
+    <field name="name">Configuración</field>
+    <field name="parent_id" ref="reserva_mesas_02893616-73c5-4091-8278-fbcbc78dc794"/>
+    <field name="sequence">100</field>
+  </record>
+  <record id="reserva_mesas_config_c8de30a9-85d7-4508-b87d-9e52944727c1" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="reservamesas_tags_707dab77-dd9b-4189-bfe4-1de11319cb0d"/>
+    <field name="name">ReservaMesas Tags</field>
+    <field name="parent_id" ref="reserva_mesas_config_155baf3f-f544-4f71-b457-620c5df08862"/>
+  </record>
+  </odoo>

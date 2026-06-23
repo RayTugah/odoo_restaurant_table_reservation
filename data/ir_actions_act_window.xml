@@ -14,8 +14,8 @@
     <field name="name">ReservaMesas</field>
     <field name="res_model">x_camping_reservamesas</field>
     <field name="search_view_id" ref="default_search_view__cc5d1835-4261-473f-bf72-f175044ff6db"/>
-    <field name="domain">["|", ("x_studio_fecha_1", "&gt;", "today"), "&amp;", ("x_studio_fecha_1", "&gt;=", "today"), ("x_studio_fecha_1", "&lt;", "today +1d")]</field>
-    <field name="context">{'group_by': ['x_studio_fecha_1:day']}</field>
+    <field name="domain">[]</field>
+    <field name="context">{'search_default_reservas_actuales_futuras': 1, 'search_default_groupby_fecha_reserva': 1}</field>
     <field name="usage">Acción</field>
     <field name="view_mode">kanban,list,form</field>
   </record>

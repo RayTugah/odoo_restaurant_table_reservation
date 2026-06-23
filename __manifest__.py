@@ -2,7 +2,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.html).
 {
     'name': 'Restaurant Table Reservation',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.0.1',
     'category': 'Restaurant',
     'summary': 'Restaurant table reservation management with table tags, tickets, wizards and daily reservation reports.',
     'description': '''
@@ -22,7 +22,7 @@ The Camping Fuente implementation is the reference production use case. The addo
 ''',
     'author': 'RayTugah',
     'maintainers': ['RayTugah'],
-    'website': 'https://github.com/RayTugah/odoo_restaurant_table_reservation',
+    'website': 'https://github.com/RayTugah/odoo-restaurant-table-reservation',
     'license': 'LGPL-3',
     'depends': [
         'base',

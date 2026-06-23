@@ -312,9 +312,11 @@
         <filter date="x_studio_date_start" name="studio_filter_date_start" string="Fecha de inicio" />
         <filter date="x_studio_date_stop" name="studio_filter_date_stop" string="Fecha de finalización" />
         <separator />
-        <filter string="Archivado" name="archived_x_camping_reservamesas" domain="[['x_active', '=', False]]" />
+        <filter name="reservas_actuales_futuras" string="Current and future" domain='["|", ("x_studio_fecha_1", "&gt;", "today"), "&amp;", ("x_studio_fecha_1", "&gt;=", "today"), ("x_studio_fecha_1", "&lt;", "today +1d")]' />
+        <filter string="Archived" name="archived_x_camping_reservamesas" domain="[['x_active', '=', False]]" />
         <separator />
-        <filter name="groupby_x_partner" string="Contacto" context="{'group_by': 'x_studio_partner_id'}" domain="[]" />
+        <filter name="groupby_fecha_reserva" string="Reservation date" context="{'group_by': 'x_studio_fecha_1:day'}" domain="[]" />
+        <filter name="groupby_x_partner" string="Contact" context="{'group_by': 'x_studio_partner_id'}" domain="[]" />
       </search>
     </field>
     <field name="model">x_camping_reservamesas</field>

@@ -22,7 +22,7 @@ The Camping Fuente implementation is the reference production use case. The addo
 ''',
     'author': 'RayTugah',
     'maintainers': ['RayTugah'],
-    'website': 'https://github.com/RayTugah/odoo-restaurant-table-reservation',
+    'website': 'https://github.com/RayTugah/odoo_restaurant_table_reservation',
     'license': 'LGPL-3',
     'depends': [
         'base',
